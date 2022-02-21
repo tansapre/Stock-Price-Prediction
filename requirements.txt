@@ -1,4 +1,4 @@
-ks_api_client.egg==info
+git+https://github.com/paramatrixtech/ksapi.git#egg=ks_api_client&subdirectory=./python
 numpy==1.19.5
 pandas==1.2.4
 streamlit==1.5.1
