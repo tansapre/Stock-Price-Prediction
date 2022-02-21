@@ -112,11 +112,17 @@ client = ks_api.KSTradeApi(access_token = "782db5a8-f03d-381b-a148-68c29dbb3037"
 
 client.login(password = "Tanay@1699")
 client.session_2fa()
-ltp = client.quote(instrument_token = instru)
-ltp = float(ltp['success'][0]['ltp'])
+quote= client.quote(instrument_token = instru)
+ltp = float(quote['success'][0]['ltp'])
+opn =float(quote['success'][0]['open_price'])
+high = float(quote['success'][0]['high_price'])
+low = float(quote['success'][0]['low_price'])
 
-st.metric(label="Price", value=ltp)
-
+col1, col2, col3 , col4 = st.columns(4)
+col1.metric("Last Price",ltp)
+col2.metric("Open Price ", opn)
+col3.metric("High Price", high)
+col4.metric("Low Price", low)
 
 
 
